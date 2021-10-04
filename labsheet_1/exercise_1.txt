@@ -1,0 +1,15 @@
+1. As the sensors (bumpers, line sensors) are located at the front of the robot, it makes sense to drive the robot
+	in this direction as this gives us a) the ability to usefully use the bumpers and b) the ability to read
+	from the line sensors before the centre of the robot is over the area they're reading, rather than after,
+	which lets the robot react to the environment faster
+
+2. The ball-caster may have been included to add to the stability of the robot, as two points of contact are
+	fundamentally unstable, but if the robot can be made to rest on three it is stable. The ball-caster may be
+	more suited at the rear as this allows the line sensors to be at the front of the robot without taking
+	up the same space that is desirable for the ball-caster. A caster wheel can rotate freely around its z
+	axis, at an offset in xy so it more easily rotates to follow motion. Ball-casters are cheaper and more
+	mechanically simple, but less ideal for larger ground clearances as the ball required becomes large.
+
+3. The left-most and right-most ground sensors may be useful to detect the direction of a sharp turn in a line
+	being followed, or to detect lines near the robot in the event that it moves off the line.
+	
