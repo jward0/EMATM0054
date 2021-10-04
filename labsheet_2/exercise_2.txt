@@ -1,0 +1,17 @@
+1. Minimum forward value: 11
+	Minimum reverse value: 11
+	Same for forward and reverse
+	In this case the same for both motors, but no reason why this should necessarily be true
+	Battery level could affect this (can predict and test from a software battery monitor), though varying
+	this will take a long time to allow battery level to drain. Other obvious factors are exact motor
+	properties, which we cannot control and must instead just account for, the nature of the surface (ie. 
+	texture, slope, etc. which can be controlled for after some testing to determine how behaviour varies)
+	and weight of the robot, which we can control within a certain range (ie. we can add weight to the robot,
+	but not really remove it). 
+2.
+	Positive drifts are to the right
+	PWM value = 20:
+	Drifts of 114mm, 125mm, 135mm, 125mm, 145mm, 135mm, 135mm, 130mm, 150mm, 140mm
+	
+	PWM value = 40:
+	Drifts of 95mm, 50mm, 40mm, 60mm, 55mm, 45mm, 30mm, 45mm, 20mm, 30mm

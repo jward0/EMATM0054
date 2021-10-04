@@ -1,0 +1,8 @@
+1. As the motors are pointing in opposite directions, they must also be run in opposite directions in order to
+	have the robot move in a straight line rather than spinning on the spot
+
+6. If a negative value is sent to AnalogWrite, the 8-bit integer overflows and wraps back round from 255
+	The same appears to happen with values above 255, wraps back round from 0
+	Default arduino integer is 16 bit signed, this just gets truncated to 8 bit for PWM value
+	Setting the PWM value to float appears to cast to int, ie. ignore the fractional part
+	
