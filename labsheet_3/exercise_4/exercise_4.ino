@@ -28,7 +28,6 @@ void setup() {
 
 
 void loop() {
-
   unsigned long exec_time_start;
   exec_time_start = micros();
 
@@ -48,19 +47,21 @@ void loop() {
   unsigned long start_time;
   unsigned long end_times[NB_LS_PINS];
   bool pins_read[NB_LS_PINS] = {false, false, false};
+  bool loop_break = false;
 
   start_time = micros();
   
-  while(true) {
+  while(!loop_break) {
     
     for(i = 0; i < NB_LS_PINS; i++) {
-      
+      // Serial.println(i);
       if(digitalRead(ls_pins[i]) == LOW && !pins_read[i]) {
         end_times[i] = micros();
         pins_read[i] = true;
       }
     
       if(pins_read[0] == true && pins_read[1] == true && pins_read[2] == true) {
+        loop_break = true;
         break;
       }
 
@@ -68,6 +69,7 @@ void loop() {
         Serial.print("Error: Timeout value (");
         Serial.print(TIMEOUT_uS);
         Serial.println(" uS) exceeded.");
+        loop_break = true;
         break;
       }
     }
@@ -79,7 +81,7 @@ void loop() {
     elapsed_times[i] = end_times[i] - start_time;
   }
 
-  Serial.println("Line sensors readings:");
+  Serial.println("Line sensors readings (uS):");
   for(i = 0; i < NB_LS_PINS; i++) {
     Serial.println(elapsed_times[i]);
   }
@@ -87,6 +89,7 @@ void loop() {
   unsigned long exec_time_end;
   exec_time_end = micros();
 
+  Serial.println("Execution time (uS):");
   Serial.println(exec_time_end - exec_time_start);
   
   delay(100);

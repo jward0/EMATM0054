@@ -49,8 +49,8 @@ void loop() {
     // Conduct a read of the line sensors
     unsigned long ls_read_times[NB_LS_PINS];
     line_sensors.readAllSensors(ls_read_times);
-
-    if (ls_read_times[1] > 100) { // determine actual value to go here when testing
+    Serial.println(ls_read_times[1]);
+    if (ls_read_times[1] > 2500) { // determine actual value to go here when testing
 
       digitalWrite(Y_LED, HIGH); 
     }
@@ -74,6 +74,7 @@ void loop() {
     // Toggle motor direction
     // ...
     pwm_value *= -1;
+    Serial.println(pwm_value);
 
     // Write motor direction and
     // pwm to motors.

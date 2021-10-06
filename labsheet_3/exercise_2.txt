@@ -1,0 +1,10 @@
+largest value (matte black surface): 3740uS
+smallest value (gloss white surface): 650uS
+
+largest value 11 bits to represent in binary, 32u4 has ADC resolution of 10 bits which would not be sufficient.
+
+With IR LED turned off:
+matte black surface gives 840000
+gloss white surface gives 77500
+
+This is based on whatever ambient IR can reflect off the surface beneath the robot

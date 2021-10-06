@@ -27,13 +27,14 @@ void loop() {
 
   delayMicroseconds(10);
 
+  pinMode(LS_LEFT_IN_PIN, INPUT);
+
   unsigned long start_time;
   unsigned long end_time;
 
   start_time = micros();
 
   while(digitalRead(LS_LEFT_IN_PIN) == HIGH) {
-    
   }
 
   end_time = micros();

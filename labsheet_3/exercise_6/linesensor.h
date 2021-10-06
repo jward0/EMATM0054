@@ -76,10 +76,11 @@ class lineSensors_c {
 		unsigned long start_time;
 		unsigned long end_times[NB_LS_PINS];
 		bool pins_read[NB_LS_PINS] = {false, false, false};
+		bool loop_break = false;
 
 		start_time = micros();
 		  
-		while(true) {
+		while(!loop_break) {
 			
 			for(i = 0; i < NB_LS_PINS; i++) {
 			  
@@ -89,6 +90,7 @@ class lineSensors_c {
 				}
 			
 				if(pins_read[0] == true && pins_read[1] == true && pins_read[2] == true) {
+					loop_break = true;
 					break;
 				}
 
@@ -96,6 +98,7 @@ class lineSensors_c {
 					Serial.print("Error: Timeout value (");
 					Serial.print(TIMEOUT_uS);
 					Serial.println(" uS) exceeded.");
+					loop_break = true;
 					break;
 				}
 			}
