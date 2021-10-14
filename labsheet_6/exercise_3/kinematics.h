@@ -11,8 +11,8 @@ class Kinematics_c {
 	float x = 0;
 	float y = 0;
 	float theta = 0;
-	float wheel_r = 16 * 1.04;
-	float wheel_l = 42.5;
+	float wheel_r = 16*1.08;
+	float wheel_l = 42.5*1.02;
   
     // Constructor, must exist.
     Kinematics_c() {
