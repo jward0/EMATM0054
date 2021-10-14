@@ -24,21 +24,14 @@ void loop() {
 
   while(robot_kinematics.theta < 1.57) {
 
+    update_kinematics();
+
     left_drive = -40;
     right_drive = 40;
     motors.setMotorPower("left", left_drive);
     motors.setMotorPower("right", right_drive);
 
     delay(10);
-
-    long instantaneous_e_right = count_e_right;
-    long instantaneous_e_left = count_e_left;
-    long delta_e_right = instantaneous_e_right - last_e_right;
-    long delta_e_left = instantaneous_e_left - last_e_left;
-    last_e_right = instantaneous_e_right;
-    last_e_left = instantaneous_e_left;
-  
-    robot_kinematics.update(delta_e_right, delta_e_left);
    
   }
 
@@ -51,21 +44,14 @@ void loop() {
 
   while(robot_kinematics.theta > 0) {
 
+    update_kinematics();
+
     left_drive = 40;
     right_drive = -40;
     motors.setMotorPower("left", left_drive);
     motors.setMotorPower("right", right_drive);
 
     delay(10);
-
-    long instantaneous_e_right = count_e_right;
-    long instantaneous_e_left = count_e_left;
-    long delta_e_right = instantaneous_e_right - last_e_right;
-    long delta_e_left = instantaneous_e_left - last_e_left;
-    last_e_right = instantaneous_e_right;
-    last_e_left = instantaneous_e_left;
-  
-    robot_kinematics.update(delta_e_right, delta_e_left);
    
   }
 
