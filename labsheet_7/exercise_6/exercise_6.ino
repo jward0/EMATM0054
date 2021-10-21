@@ -30,7 +30,7 @@ unsigned long elapsed_t;
 unsigned long large_timer;
 unsigned long large_timer_start;
 
-float heading_demand = 1;
+float heading_demand = atan2(1, 1);
 
 void setup() {
 
