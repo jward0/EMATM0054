@@ -3,6 +3,13 @@
 #define LS_RIGHT_PIN 21
 #define EMIT_PIN 11
 
+#define DN2_THRESHOLD 2000
+#define DN3_THRESHOLD 2000
+#define DN4_THRESHOLD 2000
+
+#define K_P_DRIVE 20
+#define K_P_TURN 60
+
 #define NB_LS_PINS 3
 
 #define TIMEOUT_uS 10000
