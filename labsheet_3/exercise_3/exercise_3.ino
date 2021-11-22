@@ -1,4 +1,4 @@
-#define LS_LEFT_IN_PIN 18
+#define LS_LEFT_IN_PIN
 #define LS_CENTRE_IN_PIN 20
 #define LS_RIGHT_IN_PIN 21
 #define EMIT_PIN 11

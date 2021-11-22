@@ -30,13 +30,13 @@ unsigned long elapsed_t;
 unsigned long large_timer;
 unsigned long large_timer_start;
 
-float heading_demand = atan2(1, 1);
+float heading_demand = 3.141592;
 
 void setup() {
 
-  left_controller.initialise(0.005, 0.001, 0.1);
-  right_controller.initialise(0.005, 0.001, 0.1);
-  heading_controller.initialise(50.0, 10.0, 1000.0);
+  left_controller.initialise(0.002, 0.1, 0.05);
+  right_controller.initialise(0.002, 0.1, 0.05);
+  heading_controller.initialise(50.0, 50.0, 1000.0);
   motors.initialise();
   
   setupEncoderRight();
