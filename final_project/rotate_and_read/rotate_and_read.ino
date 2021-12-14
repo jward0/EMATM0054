@@ -7,7 +7,7 @@
 u8 USB_SendSpace(u8 ep);
 #define SERIAL_ACTIVE (USB_SendSpace(CDC_TX) >= 50)
 
-#define PID_UPDATE 10
+#define PID_UPDATE 5
 
 Kinematics_c robot_kinematics;
 irSensors_c ir_sensors;
@@ -30,7 +30,7 @@ unsigned long elapsed_t;
 float heading_demand = 2*3.1415926;
 float drive_demand = 20;
 
-unsigned long intensity_readings[36];
+unsigned long intensity_readings[180];
 unsigned long elapsed_times[2];
 
 
@@ -63,7 +63,7 @@ void loop() {
 
   float current_theta = robot_kinematics.theta;
 
-  if(abs(heading_demand - current_theta) > 0.05) {
+  if(abs(heading_demand - current_theta) > 0.025) {
 
     if(pid_check > PID_UPDATE) {
   
@@ -77,8 +77,9 @@ void loop() {
       motors.setMotorPower("right", right_drive);
     
       pid_ts = millis();
-  
-      int current_theta_int = int(current_theta*5.7296);
+
+      // Converts theta in radians to measurement index- 5.7926 = 36/2pi
+      int current_theta_int = int(current_theta*5.7296*5);
       Serial.println(current_theta_int);
       
       //if(current_theta_int % 10 == 0 || current_theta_int % 10 == 1) {
@@ -144,7 +145,7 @@ void reportResultsOverSerial() {
   // results collected
 
   if( SERIAL_ACTIVE ) {
-    for(int i = 0; i < 36; i++) {
+    for(int i = 0; i < 36*5; i++) {
       Serial.print(intensity_readings[i]);
       Serial.print(", ");
     }
